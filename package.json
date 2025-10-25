@@ -1,0 +1,43 @@
+{
+  "name": "wvs-weather-app",
+  "version": "1.0.0",
+  "description": "Eine moderne, barrierefreie Wetter-App mit deutscher Lokalisierung",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:G4PLS/WVS-WeatherApp.git"
+  },
+  "author": "g4pls <125091918+G4PLS@users.noreply.github.com>",
+  "license": "MIT",
+  "keywords": [
+    "weather",
+    "app",
+    "typescript",
+    "german",
+    "accessibility",
+    "responsive",
+    "pwa"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:prod": "npm run clean && tsc --sourceMap false",
+    "dev": "python3 -m http.server 8003 --directory public",
+    "start": "npm run build && npm run dev",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t wvs-weather-app .",
+    "docker:run": "docker run -p 8080:80 wvs-weather-app"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

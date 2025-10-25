@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetter App - Aktuelle Wetterbedingungen</title>
+    <meta name="description"
+        content="Erhalten Sie aktuelle Wetterinformationen für jede Stadt mit unserer schönen, barrierefreien Wetter-App">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header class="app-header">
+            <h1>Wetter App</h1>
+            <p class="app-description">Aktuelle Wetterbedingungen für jede Stadt</p>
+            <div id="loading-indicator" class="loading-indicator" hidden>
+                <span>Lade deine letzte Stadt...</span>
+            </div>
+        </header>
+
+        <section class="search-section" aria-label="Stadtsuche">
+            <form class="search-form" role="search">
+                <div class="search-container">
+                    <label for="search" class="search-label">Nach einer Stadt suchen</label>
+                    <input type="text" id="search" class="search-input" placeholder="Stadtname eingeben..."
+                        autocomplete="off" aria-describedby="search-instructions" aria-expanded="false"
+                        aria-haspopup="listbox" role="combobox" />
+                    <div id="search-instructions" class="sr-only">
+                        Tippen zum Suchen. Pfeiltasten zur Navigation, Enter zum Auswählen.
+                    </div>
+                    <ul id="results" class="search-results" role="listbox" aria-label="Stadtvorschläge" hidden></ul>
+                </div>
+                <button id="submit-search" type="button" class="search-button" aria-describedby="button-help">
+                    <span class="button-text">Wetter abrufen</span>
+                    <span id="button-help" class="sr-only">Wetter für Stadt abrufen</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="weather-section" aria-label="Wetterinformationen">
+            <!-- Loading State -->
+            <div id="weather-loading" class="weather-container loading-state">
+                <div class="loading-content">
+                    <div class="loading-spinner"></div>
+                    <h2 class="loading-text">Lade Wetterdaten...</h2>
+                    <p class="loading-subtext">Hole aktuelle Bedingungen</p>
+                </div>
+            </div>
+
+            <!-- Weather Data (hidden initially) -->
+            <div id="weather-data" class="weather-container" hidden>
+                <header class="weather-header">
+                    <h2 id="city" class="city-name">Platzhalter Land</h2>
+                    <p id="postal-codes" class="postal-codes">PLZ: 10115</p>
+                </header>
+
+                <div class="weather-visual">
+                    <img id="weather-image" class="weather-icon" src="" alt="Aktuelle Wetterbedingungen"
+                        aria-describedby="weather-type" />
+                    <h3 id="weather-type" class="weather-condition">Sonnig</h3>
+                </div>
+
+                <div id="weather-details" class="weather-stats" role="group" aria-label="Wetterdetails">
+                    <div class="weather-detail">
+                        <dt class="detail-label">Temperatur</dt>
+                        <dd id="temperature" class="detail-value">20°C</dd>
+                    </div>
+                    <div class="weather-detail">
+                        <dt class="detail-label">Gefühlt wie</dt>
+                        <dd id="feels-like" class="detail-value">30°C</dd>
+                    </div>
+                    <div class="weather-detail">
+                        <dt class="detail-label">Feuchtigkeit</dt>
+                        <dd id="humidity" class="detail-value">65%</dd>
+                    </div>
+                    <div class="weather-detail">
+                        <dt class="detail-label">Wind</dt>
+                        <dd id="wind-speed" class="detail-value">12 km/h</dd>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../dist/index.js" defer></script>
+</body>
+
+</html>
