@@ -378,6 +378,7 @@ main {
 .weather-icon {
     width: clamp(100px, 18vw, 140px);
     height: clamp(100px, 18vw, 140px);
+    padding: 0.75rem;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
